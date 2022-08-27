@@ -11,10 +11,6 @@ function Product() {
   }
   return (
     <div className="container_">
-      <img
-        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        className="custom_img"
-      ></img>
       <div className="content_left m-3">
         <p>category</p>
         <p>title</p>
