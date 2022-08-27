@@ -30,7 +30,7 @@ const handleLogout = () => {
           <div className="banner">
             <span className="nameshop">FAKESHOP</span>
             <br />
-            <img src={Banner} className="h-50 w-50 pb-2"></img>
+            
           </div>
         </Navbar.Brand>
         <InputGroup>
