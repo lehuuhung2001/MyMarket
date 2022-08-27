@@ -7,3 +7,4 @@ export function login(payload) {
 export function register(payload) {
   return api.post("/register", payload);
 }
+

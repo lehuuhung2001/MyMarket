@@ -6,8 +6,8 @@ import NavigationBar from './components/NavigationBar/NavigationBar'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Product from './pages/Product'
-import Cart from './pages/Cart'
+import Product from './pages/Product/Product'
+import Cart from './pages/Cart/Cart'
 import Profile from './pages/Profile'
 
 //Hooks
@@ -15,8 +15,6 @@ import { useState } from "react";
 import {useSelector } from "react-redux";
 function App() {
 const { user } = useSelector((state) => state.auth);
-
-
 
   return (
     <div>
