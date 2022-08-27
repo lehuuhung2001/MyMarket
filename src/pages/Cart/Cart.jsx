@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { DATA_REQUEST} from '../../store/market/marketActionTypes';
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css"

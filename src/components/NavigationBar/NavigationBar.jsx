@@ -9,8 +9,6 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
-import Login from "../../pages/Login";
-import Banner from "../../resource/img/banner.png";
 
 import { NavLink } from "react-router-dom";
 
