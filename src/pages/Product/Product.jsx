@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import "./Product.modules.css"
 import { Button, ButtonGroup } from "react-bootstrap";
 function Product() {
@@ -9,6 +9,11 @@ function Product() {
   const handlePlus = () => {
     setCount(count => count + 1)
   }
+  // useEffect(() => {
+  //   dispatch({
+  //     type: DATA_REQUEST,
+  //   });
+  // }, []);
   return (
     <div className="container_">
       <div className="content_left m-3">

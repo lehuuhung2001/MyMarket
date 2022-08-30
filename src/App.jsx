@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 import NavigationBar from './components/NavigationBar/NavigationBar'
 //pages
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Product from './pages/Product/Product'
@@ -26,7 +26,7 @@ const { user } = useSelector((state) => state.auth);
           element={<Login/>}
         />
         <Route path="/register" element={<Register />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:productId" element={<Product />} />
         <Route
           path="/cart"
           element={

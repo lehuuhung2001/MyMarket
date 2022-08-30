@@ -1,3 +1,7 @@
 export const DATA_REQUEST = "DATA_REQUEST"
 export const DATA_SUCCESS = "DATA_SUCCESS";
 export const DATA_FAILURE = "DATA_FAILURE"
+
+export const DATA_ID_REQUEST = "DATA_ID_REQUEST";
+export const DATA_ID_SUCCESS = "DATA_ID_SUCCESS";
+export const DATA_ID_FAILURE = "DATA_ID_FAILURE";
