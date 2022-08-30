@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { DATA_REQUEST } from "../../store/market/marketActionTypes"
+import { DATA_REQUEST } from "../../store/market/marketActionTypes";
 import { useDispatch, useSelector } from "react-redux";
-import "./Home.modules.css"
-import {Card, Row, Col} from "react-bootstrap";
-import {useNavigate} from "react-router-dom"
-import Pagination_ from "../../components/Pagination/Pagination";
+import "./Home.modules.css";
+import { Card, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import PaginationCm from "../../components/Pagination/Pagination";
 function Home() {
   const { list } = useSelector((state) => state.market);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const [currentPage, setCurrentPage] = useState(1)
-  const [marketPerPage] = useState(9)
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [marketPerPage] = useState(9);
   useEffect(() => {
     dispatch({
       type: DATA_REQUEST,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const indexOfLastMarket = currentPage * marketPerPage;
   const indexOfFirstMarket = indexOfLastMarket - marketPerPage;
-  const currentMarket = list.slice(indexOfFirstMarket,indexOfLastMarket)
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const currentMarket = list.slice(indexOfFirstMarket, indexOfLastMarket);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div>
       <label className="m-5 text-primary text-bold h2">SẢN PHẨM</label>
@@ -46,10 +47,13 @@ function Home() {
           ))}
         </Row>
       </div>
-      <Pagination_ marketPerPage={marketPerPage} totalMarkets={list.length} paginate = {paginate}/>
+      <PaginationCm
+        marketPerPage={marketPerPage}
+        totalMarkets={list.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
-
 
 export default Home;

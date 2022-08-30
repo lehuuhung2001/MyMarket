@@ -1,6 +1,6 @@
 import Pagination from "react-bootstrap/Pagination";
 
-function Pagination_({marketPerPage, totalMarkets, paginate}) {
+function PaginationCm({marketPerPage, totalMarkets, paginate}) {
     const pageNumbers = [];
 
     for(let i = 1; i <= Math.ceil(totalMarkets/marketPerPage); i++){
@@ -15,4 +15,4 @@ function Pagination_({marketPerPage, totalMarkets, paginate}) {
   );
 }
 
-export default Pagination_;
+export default PaginationCm;
