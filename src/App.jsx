@@ -11,7 +11,7 @@ import Cart from './pages/Cart/Cart'
 import Profile from './pages/Profile'
 
 //Hooks
-import { useState } from "react";
+
 import {useSelector } from "react-redux";
 function App() {
 const { user } = useSelector((state) => state.auth);

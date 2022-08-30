@@ -9,8 +9,6 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
-import Login from "../../pages/Login";
-import Banner from "../../resource/img/banner.png";
 
 import { NavLink } from "react-router-dom";
 
@@ -32,7 +30,7 @@ const handleLogout = () => {
           <div className="banner">
             <span className="nameshop">FAKESHOP</span>
             <br />
-            <img src={Banner} className="h-50 w-50 pb-2"></img>
+            
           </div>
         </Navbar.Brand>
         <InputGroup>
