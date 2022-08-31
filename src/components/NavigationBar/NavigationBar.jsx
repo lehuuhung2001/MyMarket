@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
-
+import Banner from "../../resource/img/banner.png"
 import { NavLink } from "react-router-dom";
 
 import * as types from "../../store/auth/authActionTypes";
@@ -26,13 +26,13 @@ const handleLogout = () => {
   return (
     <Navbar bg="primary" variant="dark">
       <Container className="banner">
-        <Navbar.Brand href="/">
+        <NavLink to="/" style={{textDecoration:"none"}}>
           <div className="banner">
             <span className="nameshop">FAKESHOP</span>
             <br />
-            
+            <img src={Banner} alt="banner" className="banner"/>
           </div>
-        </Navbar.Brand>
+        </NavLink>
         <InputGroup>
           <Form.Control
             placeholder="Tìm sản phẩm bạn mong muốn"

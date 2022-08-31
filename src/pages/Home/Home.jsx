@@ -5,6 +5,7 @@ import "./Home.modules.css";
 import { Card, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import PaginationCm from "../../components/Pagination/Pagination";
+
 function Home() {
   const { list } = useSelector((state) => state.market);
   const dispatch = useDispatch();
@@ -31,8 +32,8 @@ function Home() {
             <Col>
               <Card
                 style={{ width: "18rem", border: "none", cursor: "pointer" }}
-                onClick={() => navigate("./product")}
-              >
+                onClick={() => navigate(`/product/${market.id}`)}
+              > 
                 <Card.Img
                   variant="top"
                   src={market.image}
@@ -43,6 +44,7 @@ function Home() {
                   <Card.Text>{market.price} $</Card.Text>
                 </Card.Body>
               </Card>
+              
             </Col>
           ))}
         </Row>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css"
 
 function Cart() {
-  const {  list} = useSelector((state) => state.market);
+  const {list} = useSelector((state) => state.market);
   const dispatch = useDispatch();
 
   useEffect(() => {
