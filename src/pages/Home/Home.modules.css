@@ -8,3 +8,7 @@
     padding-top: 80px;
     position:sticky
 }
+
+.pagination{
+    margin: 40px auto;
+}

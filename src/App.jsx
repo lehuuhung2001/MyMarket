@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
-
+import { useState } from "react";
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 import NavigationBar from './components/NavigationBar/NavigationBar'
 //pages
@@ -15,12 +15,19 @@ import Profile from './pages/Profile'
 import {useSelector } from "react-redux";
 function App() {
 const { user } = useSelector((state) => state.auth);
-
+const { list } = useSelector((state) => state.market);
+const [searchTerm, setSearchTerm] = useState("");
+const handleSearch = (e) => {
+  setSearchTerm(e.target.value);
+};
+const filterSearch = list.filter((market) =>
+  market.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
   return (
     <div>
-      <NavigationBar />
+      <NavigationBar handleSearch={handleSearch}/>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home filterSearch = {filterSearch}/>} />
         <Route
           path="/login"
           element={<Login/>}

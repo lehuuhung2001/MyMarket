@@ -11,11 +11,24 @@ import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
 import Banner from "../../resource/img/banner.png"
 import { NavLink } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import * as types from "../../store/auth/authActionTypes";
-function NavigationBar() {
+import { DATA_REQUEST } from "../../store/market/marketActionTypes";
+function NavigationBar(props) {
 const { user } = useSelector((state) => state.auth);
+
+
 const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch({
+    type: DATA_REQUEST,
+  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+
+
 
 const handleLogout = () => {
   dispatch({
@@ -36,8 +49,7 @@ const handleLogout = () => {
         <InputGroup>
           <Form.Control
             placeholder="Tìm sản phẩm bạn mong muốn"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
+            onChange={props.handleSearch}
           />
           <Button variant="secondary" id="button-addon2">
             <i class="bi bi-search"></i>

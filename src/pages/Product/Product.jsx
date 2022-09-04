@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import "./Product.modules.css"
 import { Button, ButtonGroup } from "react-bootstrap";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getIdMarkets } from '../../services/market';
 function Product() {
   const [product, setProduct] = useState(null);
   const [count,setCount] = useState(1)
   const {productId} = useParams()
+  const navigate = useNavigate()
   const handleMinus = () => {
     setCount(count => count - 1)
   }
@@ -22,6 +23,9 @@ function Product() {
       console.log(err)
     })
   }, [productId]);
+  const handleAddProduct = (e) => {
+    console.log(e)
+  }
   return (
     <div className="container_">
       {product && (
@@ -56,7 +60,7 @@ function Product() {
                 </Button>
               </ButtonGroup>
               <div>
-                <Button variant="danger" size="lg" className="button_custom">
+                <Button variant="danger" value={product} size="lg" className="button_custom" onClick={(e)=>{handleAddProduct(e)}}>
                   Chọn Mua
                 </Button>
               </div>
