@@ -4,10 +4,16 @@
     
 
 }
+.content_right{
+    height:420px;
+    width: 400px;
+    background-color: red;
+}
 .content_left{
     float: left;
     font-size: 35px;
     padding-left: 50px;
+    text-transform: capitalize;
 }
 .custom_img{
     height: 450px;
@@ -15,4 +21,10 @@
 }
 .button_custom{
     width: 350px;
+}
+.box_description{
+    margin-top: 100px;
+}
+.description::first-letter{
+    text-transform: capitalize;
 }

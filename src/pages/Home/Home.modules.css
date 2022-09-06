@@ -1,6 +1,14 @@
 .list_product{
-    margin-left: 120px;
+    margin-top: 80px;
 }
 .img_product{
     height: 400px;
+}
+.col-2{
+    padding-top: 80px;
+    position:sticky
+}
+
+.pagination{
+    margin: 40px auto;
 }
