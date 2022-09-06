@@ -21,7 +21,8 @@ function Cart() {
       setCount((count) => count - 1);
     }
   };
-  const handlePlus = () => {
+  const handlePlus = (index) => {
+
     setCount((count) => count + 1);
   };
   const handleRemoveProduct = (id) => {
@@ -57,7 +58,7 @@ function Cart() {
                 </th>
               </tr>
             </thead>
-            {cart.map((data) => (
+            {cart.map((data, index) => (
               <tbody>
                 <tr key={data.id}>
                   <td>{data.id}</td>
@@ -72,15 +73,15 @@ function Cart() {
                   <td>{data.price} $</td>
                   <td>
                     <ButtonGroup aria-label="Basic example">
-                      <Button variant="secondary" onClick={handleMinus}>
+                      <Button variant="secondary" onClick={() => data.count - 1}>
                         -
                       </Button>
                       <p
                         style={{ width: 20, textAlign: "center", fontSize: 14 }}
                       >
-                        {count}
+                        {data.count}
                       </p>
-                      <Button variant="secondary" onClick={handlePlus}>
+                      <Button variant="secondary" onClick={()=>setCount(count+1)}>
                         +
                       </Button>
                     </ButtonGroup>
