@@ -1,31 +1,44 @@
-import React, { useState, useEffect } from 'react'
-import "./Product.modules.css"
+import React, { useState, useEffect} from "react";
+import "./Product.modules.css";
 import { Button, ButtonGroup } from "react-bootstrap";
-import { useNavigate, useParams } from 'react-router-dom';
-import { getIdMarkets } from '../../services/market';
-function Product() {
+import {  useParams } from "react-router-dom";
+import { getIdMarkets } from "../../services/market";
+import { useDispatch } from "react-redux";
+import { ADD_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
+
+function Product({ setListAdd }) {
   const [product, setProduct] = useState(null);
-  const [count,setCount] = useState(1)
-  const {productId} = useParams()
-  const navigate = useNavigate()
+  const [count, setCount] = useState(1);
+  const { productId } = useParams();
+  const dispatch = useDispatch();
   const handleMinus = () => {
-    setCount(count => count - 1)
-  }
+    if (count > 1) {
+      setCount((count) => count - 1);
+    }
+  };
   const handlePlus = () => {
-    setCount(count => count + 1)
-  }
+    setCount((count) => count + 1);
+  };
   useEffect(() => {
     getIdMarkets(productId)
-    .then((res) => {
-      setProduct(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((res) => {
+        setProduct(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [productId]);
-  const handleAddProduct = (e) => {
-    console.log(e)
-  }
+  
+  const addProduct = () => {
+    dispatch({
+      type: ADD_PRODUCT_REQUEST,
+      payload: {
+        title: product.title,
+        image: product.image,
+        price: product.price,
+      },
+    });
+  };
   return (
     <div className="container_">
       {product && (
@@ -60,13 +73,21 @@ function Product() {
                 </Button>
               </ButtonGroup>
               <div>
-                <Button variant="danger" value={product} size="lg" className="button_custom" onClick={(e)=>{handleAddProduct(e)}}>
+                <Button
+                  variant="danger"
+                  value={product}
+                  size="lg"
+                  className="button_custom"
+                  onClick={(e) => {
+                    addProduct(e);
+                  }}
+                >
                   Chọn Mua
                 </Button>
               </div>
             </div>
           </div>
-          <div className='box_description'>
+          <div className="box_description">
             <p style={{ fontSize: 22, fontWeight: "bold" }}>
               Thông Tin Sản Phẩm
             </p>
@@ -80,4 +101,4 @@ function Product() {
   );
 }
 
-export default Product
+export default Product;

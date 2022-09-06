@@ -11,13 +11,12 @@ import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
 import Banner from "../../resource/img/banner.png"
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import * as types from "../../store/auth/authActionTypes";
 import { DATA_REQUEST } from "../../store/market/marketActionTypes";
+
 function NavigationBar(props) {
 const { user } = useSelector((state) => state.auth);
-
-
 const dispatch = useDispatch();
 
 useEffect(() => {
@@ -39,11 +38,11 @@ const handleLogout = () => {
   return (
     <Navbar bg="primary" variant="dark">
       <Container className="banner">
-        <NavLink to="/" style={{textDecoration:"none"}}>
+        <NavLink to="/" style={{ textDecoration: "none" }}>
           <div className="banner">
             <span className="nameshop">FAKESHOP</span>
             <br />
-            <img src={Banner} alt="banner" className="banner"/>
+            <img src={Banner} alt="banner" className="banner" />
           </div>
         </NavLink>
         <InputGroup>
@@ -57,29 +56,31 @@ const handleLogout = () => {
           </Button>
         </InputGroup>
         <div className="nav_header"></div>
-          {user ? (
+        {user ? (
+          <>
             <Nav className="me-auto" onClick={handleLogout}>
-              <NavLink to="/" className="login-cart">
+              <NavLink className="login-cart"  to="/">
                 <i className="bi bi-person-circle"></i>
                 &nbsp; Đăng xuất
               </NavLink>
             </Nav>
-          ) : (
-            <Nav className="me-auto">
-              <NavLink to="/login" className="login-cart">
-                <i className="bi bi-person-circle"></i>
-                &nbsp; Đăng nhập
-              </NavLink>
-            </Nav>
-          )}
-
+            
+          </>
+        ) : (
           <Nav className="me-auto">
-            <NavLink to="/cart" className="login-cart">
-              <i className="bi bi-cart"></i>
-              &nbsp;Giỏ hàng
+            <NavLink to="/login" className="login-cart">
+              <i className="bi bi-person-circle"></i>
+              &nbsp; Đăng nhập
             </NavLink>
           </Nav>
-        
+        )}
+
+        <Nav className="me-auto">
+          <NavLink to="/cart" className="login-cart">
+            <i className="bi bi-cart"></i>
+            &nbsp;Giỏ hàng
+          </NavLink>
+        </Nav>
       </Container>
     </Navbar>
   );
