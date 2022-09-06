@@ -3,11 +3,10 @@ import { BOUGHT_PRODUCT_REQUEST, DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } fro
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css";
 import { Button, Table, ButtonGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+
 
 function Cart() {
   const { cart } = useSelector((state) => state.market);
-  const navigate = useNavigate()
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   
@@ -106,10 +105,10 @@ function Cart() {
           <Button
             variant="primary"
             style={{ width: 400 }}
-            onClick={() => {
-              navigate("/profile");
+            // onClick={() => {
+            //   navigate("/profile");
 
-            }}
+            // }}
           >
             Sản Phẩm Đã Mua
           </Button>{" "}
