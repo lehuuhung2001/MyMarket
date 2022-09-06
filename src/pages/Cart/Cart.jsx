@@ -16,15 +16,15 @@ function Cart() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleMinus = () => {
-    if (count > 1) {
-      setCount((count) => count - 1);
-    }
-  };
-  const handlePlus = (index) => {
+  // const handleMinus = () => {
+  //   if (count > 1) {
+  //     setCount((count) => count - 1);
+  //   }
+  // };
+  // const handlePlus = (index) => {
 
-    setCount((count) => count + 1);
-  };
+  //   setCount((count) => count + 1);
+  // };
   const handleRemoveProduct = (id) => {
     dispatch({ type: REMOVE_PRODUCT_REQUEST, payload: id });
 
