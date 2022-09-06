@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { DATA_REQUEST } from "../../store/market/marketActionTypes";
-import { useDispatch, useSelector } from "react-redux";
-import "../../pages/Home/Home.modules.css";
+import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import PaginationCm from "../Pagination/Pagination";
-function FilterCategory({ currentMarket, resultCategory, list }, props) {
+function FilterCategory({ currentMarket}) {
   const navigate = useNavigate();
 //   const filterCategory = list.filter.includes()
   return (
