@@ -6,7 +6,7 @@ import { getIdMarkets } from "../../services/market";
 import { useDispatch } from "react-redux";
 import { ADD_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
 
-function Product({ setListAdd }) {
+function Product() {
   const [product, setProduct] = useState(null);
   const [count, setCount] = useState(1);
   const { productId } = useParams();
@@ -36,6 +36,7 @@ function Product({ setListAdd }) {
         title: product.title,
         image: product.image,
         price: product.price,
+        count: count
       },
     });
   };

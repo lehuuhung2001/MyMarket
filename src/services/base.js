@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_ENDPOINT = "http://localhost:3005/api";
+const API_ENDPOINT = "https://sever-my-market.herokuapp.com/api";
 
 function getToken() {
   const token = localStorage.getItem("token");
