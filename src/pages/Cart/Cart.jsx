@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BOUGHT_PRODUCT_REQUEST, DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
+import {  DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css";
 import { Button, Table, ButtonGroup } from "react-bootstrap";
