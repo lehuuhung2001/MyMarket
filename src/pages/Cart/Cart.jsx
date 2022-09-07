@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BOUGHT_PRODUCT_REQUEST, DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
+import React, { useEffect } from "react";
+import {  DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } from "../../store/market/marketActionTypes";
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css";
 import { Button, Table, ButtonGroup } from "react-bootstrap";
@@ -7,7 +7,6 @@ import { Button, Table, ButtonGroup } from "react-bootstrap";
 
 function Cart() {
   const { cart } = useSelector((state) => state.market);
-  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -16,26 +15,18 @@ function Cart() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // const handleMinus = () => {
-  //   if (count > 1) {
-  //     setCount((count) => count - 1);
-  //   }
-  // };
-  // const handlePlus = (index) => {
 
-  //   setCount((count) => count + 1);
-  // };
   const handleRemoveProduct = (id) => {
     dispatch({ type: REMOVE_PRODUCT_REQUEST, payload: id });
 
   };
   // eslint-disable-next-line no-unused-vars
-  const buyingProduct = () => {
-    dispatch({
-      type: BOUGHT_PRODUCT_REQUEST,
-      payload: cart.map()
-    });
-  };
+  // const buyingProduct = () => {
+  //   dispatch({
+  //     type: BOUGHT_PRODUCT_REQUEST,
+  //     payload: cart.map()
+  //   });
+  // };
   
   return (
     <div>
