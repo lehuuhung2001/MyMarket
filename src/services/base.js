@@ -4,8 +4,8 @@ const API_ENDPOINT = "https://sever-my-market.herokuapp.com/api";
 
 function getToken() {
   const token = localStorage.getItem("token");
-
-  return token ? `Bearer ${token}` : null;
+  const user = localStorage.getItem("user")
+  return token ? `Bearer ${token}` : user;
 }
 
 const api = axios.create({

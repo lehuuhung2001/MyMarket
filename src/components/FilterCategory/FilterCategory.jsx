@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-function FilterCategory({ currentMarket}) {
+function FilterCategory({ filterCategory,currentMarket }) {
   const navigate = useNavigate();
-//   const filterCategory = list.filter.includes()
+  //   const filterCategory = list.filter.includes()
   return (
     <div className="col-10">
       <div className="list_product">

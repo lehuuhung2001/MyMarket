@@ -11,7 +11,7 @@ export function* login(action) {
       } = response;
 
       localStorage.setItem("token", accessToken);
-
+      localStorage.setItem("user", user)
       yield put({
         type: types.LOGIN_SUCCESS,
         payload: user,
