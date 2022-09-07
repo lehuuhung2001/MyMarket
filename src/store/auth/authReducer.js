@@ -1,7 +1,7 @@
 import * as types from "./authActionTypes";
 
 const initValue = {
-  user: null,
+  user: localStorage.getItem('user'),
   loading: false,
   error: null,
   registerSuccess: false,
@@ -9,10 +9,21 @@ const initValue = {
 
 export default function authReducer(state = initValue, { type, payload }) {
   switch (type) {
+    case types.RESTORE_USER:
+      return {
+        user: payload,
+        loading: false,
+        error: null,
+      };
     case types.LOGIN_REQUEST:
     case types.REGISTER_REQUEST:
     case types.LOGOUT_REQUEST:
-      return initValue;
+      return {
+        user: null,
+        loading: false,
+        error: null,
+        registerSuccess: false,
+      };
     case types.LOGIN_FAILURE:
     case types.REGISTER_FAILURE:
       return {

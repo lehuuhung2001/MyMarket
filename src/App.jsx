@@ -18,6 +18,8 @@ const { user } = useSelector((state) => state.auth);
 const { list } = useSelector((state) => state.market);
 const [listAdd, setListAdd] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
+
+
 const handleSearch = (e) => {
   setSearchTerm(e.target.value);
 };

@@ -34,7 +34,7 @@ function Home({filterSearch}) {
       return set;
     }, new Set()),
   ];
-
+  // const filterCategory = currentMarket.filter((market)=>{market.category = resultCategory })
  
   return (
     <div className="row">
@@ -50,7 +50,6 @@ function Home({filterSearch}) {
               defaultChecked={checkbox}
               value={category}
               onChange={() => setCheckbox(!checkbox)}
-
             />
             <label for="vehicle1" style={{ textFTransform: "capitalize" }}>
               {" "}
@@ -62,9 +61,10 @@ function Home({filterSearch}) {
       </div>
       {checkbox ? (
         <FilterCategory
-          currentMarket={currentMarket}
+          // filterCategory={filterCategory}
           resultCategory={resultCategory}
           list={list}
+          currentMarket={currentMarket}
         />
       ) : (
         <div className="col-10">

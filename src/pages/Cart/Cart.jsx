@@ -36,6 +36,7 @@ function Cart() {
       payload: cart.map()
     });
   };
+  
   return (
     <div>
       <label className="h3 m-5">Giỏ hàng</label>
@@ -48,7 +49,6 @@ function Cart() {
           >
             <thead>
               <tr>
-                <th></th>
                 <th style={{ width: 600 }}>Sản phẩm</th>
                 <th className="th_custom">Đơn giá</th>
                 <th className="th_custom">Số lượng</th>
@@ -58,10 +58,9 @@ function Cart() {
                 </th>
               </tr>
             </thead>
-            {cart.map((data, index) => (
+            {cart.map((data) => (
               <tbody>
                 <tr key={data.id}>
-                  <td>{data.id}</td>
                   <td>
                     <div>
                       <img src={data.image} className="w-25" alt="imgProduct" />
@@ -73,20 +72,14 @@ function Cart() {
                   <td>{data.price} $</td>
                   <td>
                     <ButtonGroup aria-label="Basic example">
-                      <Button variant="secondary" onClick={() => data.count - 1}>
-                        -
-                      </Button>
                       <p
                         style={{ width: 20, textAlign: "center", fontSize: 14 }}
                       >
                         {data.count}
                       </p>
-                      <Button variant="secondary" onClick={()=>setCount(count+1)}>
-                        +
-                      </Button>
                     </ButtonGroup>
                   </td>
-                  <td>{(count * data.price).toFixed(2)} $</td>
+                  <td>{(data.count * data.price).toFixed(2)} $</td>
                   <td>
                     <i
                       class="bi bi-trash"
