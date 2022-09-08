@@ -23,9 +23,9 @@
 }
 .button_modal{
   display: flex;
-  justify-content:end;
   margin: 30px;
-  margin-top: 35px
+  margin-top: 35px;
+  margin-left: 400px
   
 }
 button {

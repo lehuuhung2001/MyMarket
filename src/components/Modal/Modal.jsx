@@ -15,7 +15,7 @@ function Modal({ children, title, showModal, closeModal = () => {} }) {
     ? ReactDOM.createPortal(
         <div className={styles.Modal} onClick={closeBackground}>
           <div className={styles.modal_content}>
-            <div style={{ marginTop: 60 ,marginLeft: 20}}>{children}</div>
+            <div style={{ marginTop: 60 ,marginLeft:60}}>{children}</div>
             <div className={styles.button_modal}>
               <Button onClick={closeModal}>Ok</Button>
               <Button style={{ marginLeft: 20 }} onClick={closeModal}>
