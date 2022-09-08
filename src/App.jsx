@@ -16,7 +16,6 @@ import {useSelector } from "react-redux";
 function App() {
 const { user } = useSelector((state) => state.auth);
 const { list } = useSelector((state) => state.market);
-const [listAdd, setListAdd] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
 
 
@@ -36,12 +35,12 @@ const filterSearch = list.filter((market) =>
           element={<Login/>}
         />
         <Route path="/register" element={<Register />} />
-        <Route path="/product/:productId" element={<Product setListAdd = {setListAdd}/>} />
+        <Route path="/product/:productId" element={<Product/>} />
         <Route
           path="/cart"
           element={
             <ProtectedRoute condition={(user)} redirectPath="/login">
-              <Cart listAdd = {listAdd}/>
+              <Cart />
             </ProtectedRoute>
           }
         />
