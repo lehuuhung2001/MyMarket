@@ -5,17 +5,16 @@ import "./Home.modules.css";
 import { Card, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import PaginationCm from "../../components/Pagination/Pagination";
-import FilterCategory  from "../../components/FilterCategory/FilterCategory";
-function Home({filterSearch}) {
+import FilterCategory from "../../components/FilterCategory/FilterCategory";
+function Home({ filterSearch }) {
   const { list } = useSelector((state) => state.market);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [checkbox, setCheckbox] = useState(false);
+  const [valueFilter, setValueFilter] = useState("")
   const [currentPage, setCurrentPage] = useState(1);
   const [marketPerPage] = useState(9);
-  
 
-  
   useEffect(() => {
     dispatch({
       type: DATA_REQUEST,
@@ -25,7 +24,10 @@ function Home({filterSearch}) {
 
   const indexOfLastMarket = currentPage * marketPerPage;
   const indexOfFirstMarket = indexOfLastMarket - marketPerPage;
-  const currentMarket = filterSearch.slice(indexOfFirstMarket, indexOfLastMarket);
+  const currentMarket = filterSearch.slice(
+    indexOfFirstMarket,
+    indexOfLastMarket
+  );
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const resultCategory = [
@@ -34,8 +36,9 @@ function Home({filterSearch}) {
       return set;
     }, new Set()),
   ];
-  // const filterCategory = currentMarket.filter((market)=>{market.category = resultCategory })
- 
+    const filterData = list.filter(
+      (market) => market.category === valueFilter
+    );
   return (
     <div className="row">
       <div className="col-2">
@@ -49,9 +52,13 @@ function Home({filterSearch}) {
               type="checkbox"
               defaultChecked={checkbox}
               value={category}
-              onChange={() => setCheckbox(!checkbox)}
+              onChange={(e) => {
+                setCheckbox(!checkbox);
+                setValueFilter(e.target.value)
+                console.log(filterData)
+              }}
             />
-            <label for="vehicle1" style={{ textFTransform: "capitalize" }}>
+            <label  style={{ textTransform: "capitalize" }}>
               {" "}
               &nbsp;{category}
             </label>
@@ -61,9 +68,8 @@ function Home({filterSearch}) {
       </div>
       {checkbox ? (
         <FilterCategory
-          // filterCategory={filterCategory}
-          resultCategory={resultCategory}
-          list={list}
+          checkbox={checkbox}
+          filterData = {filterData}
           currentMarket={currentMarket}
         />
       ) : (

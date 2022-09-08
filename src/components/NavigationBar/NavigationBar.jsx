@@ -9,31 +9,19 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./NavigationBar.modules.css";
-import Banner from "../../resource/img/banner.png"
+import Banner from "../../resource/img/banner.png";
 import { NavLink } from "react-router-dom";
-import { useEffect} from "react";
 import * as types from "../../store/auth/authActionTypes";
-import { DATA_REQUEST } from "../../store/market/marketActionTypes";
 
 function NavigationBar(props) {
-const { user } = useSelector((state) => state.auth);
-const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
-useEffect(() => {
-  dispatch({
-    type: DATA_REQUEST,
-  });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
-
-
-
-
-const handleLogout = () => {
-  dispatch({
-    type: types.LOGOUT_REQUEST,
-  });
-};
+  const handleLogout = () => {
+    dispatch({
+      type: types.LOGOUT_REQUEST,
+    });
+  };
 
   return (
     <Navbar bg="primary" variant="dark">
@@ -59,12 +47,11 @@ const handleLogout = () => {
         {user ? (
           <>
             <Nav className="me-auto" onClick={handleLogout}>
-              <NavLink className="login-cart"  to="/">
+              <NavLink className="login-cart" to="/">
                 <i className="bi bi-person-circle"></i>
                 &nbsp; Đăng xuất
               </NavLink>
             </Nav>
-            
           </>
         ) : (
           <Nav className="me-auto">

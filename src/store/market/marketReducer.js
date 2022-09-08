@@ -16,10 +16,10 @@ export default function marketReducer(state = initValue, { type, payload }) {
     case types.BOUGHT_PRODUCT_REQUEST:
     case types.REMOVE_BOUGHT_REQUEST:
       return {
-        list: [],
+        ...state,
         loading: true,
         error: null,
-        cart: [],
+        list:[]
       };
     case types.DATA_FAILURE:
     case types.ADD_PRODUCT_FAILURE:
@@ -29,10 +29,9 @@ export default function marketReducer(state = initValue, { type, payload }) {
     case types.BOUGHT_PRODUCT_FAILURE:
     case types.REMOVE_BOUGHT_FAILURE:
       return {
-        list: [],
-        loading: true,
+        ...state,
+        loading: false,
         error: payload,
-        cart: [],
       };
     case types.DATA_SUCCESS:
     case types.DATA_CART_SUCCESS:
@@ -57,8 +56,8 @@ export default function marketReducer(state = initValue, { type, payload }) {
       return {
         ...state,
         loading: false,
-        cart: state.cart.filter((product) => product.id !== payload.id),
-        bought: state.bought.filter((product) => product.id !== payload.id),
+        cart: state.cart.filter((product) => product.id !== payload),
+        bought: state.bought.filter((product) => product.id !== payload),
       };
     default:
       return state;
