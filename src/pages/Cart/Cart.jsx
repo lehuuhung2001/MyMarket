@@ -3,12 +3,15 @@ import {  DATA_CART_REQUEST, REMOVE_PRODUCT_REQUEST } from "../../store/market/m
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.modules.css";
 import { Button, Table, ButtonGroup } from "react-bootstrap";
-
-
+import { useState } from "react";
+import Modal from "../../components/Modal/Modal";
 function Cart() {
   const { cart } = useSelector((state) => state.market);
   const dispatch = useDispatch();
-  
+   const [showModal, setShowModal] = useState(false);
+   const openModal = () => {
+     setShowModal(true);
+   };
   useEffect(() => {
     dispatch({
       type: DATA_CART_REQUEST,
@@ -83,10 +86,7 @@ function Cart() {
             ))}
           </Table>
         </div>
-        <div
-          className="col-4 mt-5"
-          style={{ marginLeft: 100 }}
-        >
+        <div className="col-4 mt-5" style={{ marginLeft: 100 }}>
           <Button
             variant="primary"
             style={{ width: 400 }}
@@ -97,11 +97,22 @@ function Cart() {
           >
             Sản Phẩm Đã Mua
           </Button>{" "}
-          <Button variant="danger" style={{ width: 400 }} className="mt-5" >
+          <Button
+            variant="danger"
+            style={{ width: 400 }}
+            className="mt-5"
+            onClick={openModal}
+          >
             Mua Hàng
           </Button>{" "}
         </div>
       </div>
+      <Modal
+        showModal={showModal}
+        closeModal={() => setShowModal(false)}
+      >
+        Bạn có chắc chắn mua những sản phẩm này !
+      </Modal>
     </div>
   );
 }
